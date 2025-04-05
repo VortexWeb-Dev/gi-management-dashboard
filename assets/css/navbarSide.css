@@ -1,0 +1,208 @@
+:root {
+  font-size: 16px;
+  font-family: "Open Sans";
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+  --transition-speed: 600ms;
+}
+
+body {
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+body::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
+
+.main-content {
+  margin-left: 5rem;
+  padding: 2rem;
+  font-size:xx-large;
+}
+
+.navbar {
+  z-index: 1000;
+  width: 5rem;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--bg-primary);
+  transition: width 600ms ease;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  height: 100%;
+  overflow: auto;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+/* keeps the last item at teh bottom */
+.nav-item:last-child {
+  margin-top: auto;
+}
+
+.fa-primary {
+  color: #ff7eee;
+}
+
+.fa-secondary {
+  color: #df49a6;
+}
+
+.fa-primary,
+.fa-secondary {
+  transition: var(--transition-speed);
+}
+
+.nav-link {
+  height: 5rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.nav-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+  transition: var(--transition-speed);
+}
+
+.nav-link:hover svg {
+  fill: #df49a6;
+}
+
+.link-text {
+  /* display: none; */
+  margin-left: 1rem;
+}
+
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-size: 1.3rem;
+  letter-spacing: 0.1ch;
+  width: 100%;
+}
+
+.logo-text {
+  display: inline;
+  position: absolute;
+  left: -999px;
+  transition: var(--transition-speed);
+}
+
+.navbar:hover .logo svg {
+  transform: rotate(-180deg);
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+    font-size: 1rem;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .nav-link {
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+  }
+
+  .nav-link svg {
+    margin-bottom: 0.5rem;
+  }
+
+  .link-text {
+    display: inline;
+    margin-left: 0;
+    font-size: 0.9rem;
+  }
+
+  .main-content {
+    margin: 0;
+  }
+}
+
+/* Large screens */
+@media only screen and (min-width: 600px) {
+  .navbar {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+    font-size: 1.3rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar:hover {
+    width: 16rem;
+  }
+  /* handel transition on hover --> preventing the text component not to display just on hover */
+  /* to fix it instade of using display property i used scale for smooth transition */
+  /* alternative way -> use overflow:hidden to navbar-nav class */
+  .link-text {
+    font-size: 0;
+    transition: all var(--transition-speed) ease-in-out;
+  }
+  .navbar:hover .link-text {
+    /* display: inline; */
+    font-size: 1.3rem;
+    transform: scale(1);
+  }
+
+  .navbar:hover .logo svg {
+    margin-left: 11rem;
+  }
+
+  .navbar:hover .logo-text {
+    left: 0px;
+  }
+}
