@@ -15,7 +15,7 @@ function getUsers()
     while ($leftUser) {
         $result = CRest::call('user.get', [
             'select' => ['*', 'UF_*'],
-            'filter' => ['UF_DEPARTMENT' => [5, 78, 77, 440], 'ACTIVE' => 'Y'],
+            'filter' => ['ACTIVE' => 'Y'],
             'start' => $next,
         ]);
         $users = array_merge($users, $result['result']);

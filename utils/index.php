@@ -49,21 +49,21 @@ function clearCache($fileName)
 function mapDeveloperName($developerId)
 {
     $developers = [
-        '503' => 'Emaar',
-        '504' => 'Damac',
-        '505' => 'Nakheel',
-        '506' => 'Arada',
-        '507' => 'Ellington Properties',
-        '508' => 'Danube',
-        '509' => 'Binghatti',
-        '510' => 'Sobha',
-        '511' => 'Tiger Properties',
-        '582' => 'Bloom Properties',
-        '619' => 'Others',
-        '4373' => 'District One',
-        '4385' => 'Dubai Properties',
-        '4464' => 'Azizi',
+        503 => 'Emaar',
+        504 => 'Damac',
+        505 => 'Nakheel',
+        506 => 'Arada',
+        507 => 'Ellington Properties',
+        508 => 'Danube',
+        509 => 'Binghatti',
+        510 => 'Sobha',
+        511 => 'Tiger Properties',
+        582 => 'Bloom Properties',
+        619 => 'Others',
+        4373 => 'District One',
+        4385 => 'Dubai Properties',
+        4464 => 'Azizi',
     ];
 
-    return isset($developers[$developerId]) ? $developers[$developerId] : 'Unknown Developer';
+    return isset($developers[$developerId]) ? $developers[$developerId] : '';
 }
